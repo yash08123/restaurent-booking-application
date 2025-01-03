@@ -1,14 +1,13 @@
 export interface Booking {
-  id: string
-  name: string
-  email: string
-  phone: string
-  date: Date;
-  time: string
-  guests: number
-  tableNumber?: number
-  status: 'pending' | 'confirmed' | 'cancelled'
-  createdAt?: Date;
+  id: string;
+  name: string;
+  email: string;
+  phone?: string; // Optional if not always provided
+  date: Date; // Ensure this is a Date object
+  time: string;
+  guests: number;
+  status: string;
+  createdAt: Date;
 }
 
 

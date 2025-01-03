@@ -32,10 +32,12 @@ export default function Home() {
             <BookingForm onSubmit={(formData) =>
               setBooking({
                 ...formData,
-                id: generateId(), // Replace with your ID generation logic
-                status: "pending", // Default status
-                createdAt: new Date(), // Timestamp
-              })
+                id: generateId(),
+                status: "pending",
+                createdAt: new Date(),
+                date: new Date(formData.date), // Convert date string to Date object
+              }
+              )
             }
              />
           )}
