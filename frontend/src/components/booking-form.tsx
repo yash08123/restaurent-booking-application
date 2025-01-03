@@ -49,7 +49,7 @@ const formSchema = z.object({
   }),
   guests: z.number().min(1).max(10),
 });
-// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const timeSlots = [
   "12:00",
   "13:00",
@@ -80,7 +80,7 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
   async function handleSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/bookings", {
+      const response = await fetch(`${apiUrl}/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
