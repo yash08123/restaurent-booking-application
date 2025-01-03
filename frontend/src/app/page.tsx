@@ -12,8 +12,9 @@ export default function Home() {
   };
 
   function generateId(): string {
-    throw new Error('Function not implemented.');
+    return Math.random().toString(36).substr(2, 9);
   }
+  
 
   return (
     <main className="container mx-auto py-10">
