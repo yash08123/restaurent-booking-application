@@ -11,9 +11,9 @@ const app = express();
 
 // Connect to MongoDB
 connectDB();
-
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 // Middleware
-app.use(cors({ origin: "http://localhost:3000" })); // Replace with your frontend URL
+app.use(cors({ origin: apiUrl })); // Replace with your frontend URL
 app.use(express.json());
 
 // Routes
