@@ -3,13 +3,15 @@ export interface Booking {
   name: string
   email: string
   phone: string
-  date: Date
+  date: Date;
   time: string
   guests: number
   tableNumber?: number
   status: 'pending' | 'confirmed' | 'cancelled'
-  createdAt: string
+  createdAt?: Date;
 }
+
+
 
 export interface BookingFormData {
   name: string

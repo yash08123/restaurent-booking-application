@@ -25,7 +25,7 @@ export function BookingSummary({ booking, onBack }: BookingSummaryProps) {
           </div>
           <div className="space-y-1">
             <p className="text-sm font-medium text-muted-foreground">Date</p>
-            <p>{booking.date}</p>
+            <p>{booking.date.toLocaleDateString()}</p>
           </div>
           <div className="space-y-1">
             <p className="text-sm font-medium text-muted-foreground">Time</p>

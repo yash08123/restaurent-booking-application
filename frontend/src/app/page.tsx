@@ -2,19 +2,7 @@
 import { useState } from 'react';
 import { BookingForm } from '@/components/booking-form';
 import { BookingSummary } from '@/components/booking-summary';
-
-
-interface Booking {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  date: string;
-  time: string;
-  guests: number;
-  status: "pending" | "confirmed" | "cancelled";
-  createdAt: string;
-}
+import { Booking } from '../../types/booking'; // Import the Booking type
 
 export default function Home() {
   const [booking, setBooking] = useState<Booking | null>(null);
@@ -22,6 +10,10 @@ export default function Home() {
   const handleBack = () => {
     setBooking(null); 
   };
+
+  function generateId(): string {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <main className="container mx-auto py-10">
@@ -36,7 +28,15 @@ export default function Home() {
           {booking ? (
             <BookingSummary booking={booking} onBack={handleBack} />
           ) : (
-            <BookingForm onSubmit={(booking) => setBooking(booking)} />
+            <BookingForm onSubmit={(formData) =>
+              setBooking({
+                ...formData,
+                id: generateId(), // Replace with your ID generation logic
+                status: "pending", // Default status
+                createdAt: new Date(), // Timestamp
+              })
+            }
+             />
           )}
         </div>
       </div>
